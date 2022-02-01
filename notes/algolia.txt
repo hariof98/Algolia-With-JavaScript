@@ -1,0 +1,105 @@
+The Process takes place in 3 steps:
+	1. Data
+	2. Relevance
+	3. UX
+
+
+X---------------X--------------------X-----------------------X--------------Data Format and its attributes--------X----------------X-------------------X--------------X-------------------X
+
+Data is important, since every search starts with data
+	Algolia is schemaless
+	Accepts JSON Format
+	Only have the data which is useful for the search experience
+
+	4 attributes are used: 
+			       1. Searchable Attributes 
+					( Important, with this attribute the engine will search for given search queries ) => (titles, description, actors, ratings)
+
+			       2. Filtering Attributes	 
+					( Displays subsets of results[Refine and Browse] ) => (year, rating, actors, titles, genre) 
+
+			       3. Display Attributes	 
+					( Displays results in front end )
+
+			       4. Buisness Metrics Attributes [for customer relevance]
+					( It provides good relevant results, because multiple results can arrive for similar search queries ) => (score, rating)
+
+
+		
+	objectID is unique id for the data. If there is no objectID, algolia will automatically generate one.
+		add this {autoGenerateObjectIDIfNotExist: true} when using saveObjects() method.
+
+
+	Record Size should be as small (avg of 2kb) as possible because => 
+									  1. less content = less noise
+							      		  2. Faster Indexing
+							                  3. Results Returned Faster
+
+
+X---------------X--------------------X-----------------------X----------------Push Data to Algolia-------------------X----------------X-------------------X--------------X----------------X
+
+ Three ways we can push data to algolia,
+	1. Using JSON file
+	2. By creating an array of objects locally
+	3. From database
+
+
+X---------------X--------------------X-----------------------X--------------Important Concepts in Algolia------------X----------------X-------------------X--------------X----------------X
+
+ methods  => algoliasearch() will call the api's
+		* first argument is Algolia Api called as Application ID
+
+		* second can be Admin API or Search-Only API Key or Usage API Key Monitoring API Key
+			Admin API => we can add edit, delete data and indices
+			Search-Only API => Only we can perform search operation of the data available in Indices
+			
+
+	   => initIndex() is used to refer the index in algolia or it will create one if not already present
+
+	   => saveObjects() is used to save the data in array of objects to algolia
+
+	   => addObjects() is used before but its now replaced by saveObjects()
+
+	   => deleteObjects([]) will delete multiple the records based on the given objectID and deleteObject() will delete single record
+		Here we need to specify the objectID for every objects. For multiple objectID we need to pass it as an array.
+	
+	   => index.delete() will delete the entire indices. Here index is the name of our indices
+
+	   => partialUpdateObject() and partialUpdateObjects([]) will update a single and multiple records respectively based on the objectID. 
+		Here we need to specify the changes and the objectID for every objects. If multiple objects are given, we need to use it as an array of objects.
+
+
+
+X---------------X--------------------X-----------------------X----------------X---------------X-------------------X----------------X-------------------X--------------X-------------------X
+	 
+	=> searchableAttributes() is used to define 
+	      1. the keywords to refine the search 
+	      2. order of the attributes (in which way it should be displayed in front end)
+	      3. It is used for texutal relevance
+
+						
+	=> What is nbHits and nbPages?
+
+	     nbHits: the number of hits matched by the query. 
+	     nbPages: the number of returned pages
+
+
+	=> Use of "hits" is to display the list of received response/results.
+
+
+	=> customRanking: ['asc(attribute1)', 'desc(attribute2)']
+		1. It displays the result based on the given conditions, it takes numbers as attributes to sort it based on ascending or descending order
+		2. It is used for Buisness Metrics
+
+
+
+X---------------X--------------------X-----------------------X----------------X---------------X-------------------X----------------X-------------------X--------------X-------------------X
+	
+* In Algolia Front-End implementaion is the best because of speed (because in front end the request will hit algolia directly without going to back end) 
+	
+
+* InstantSearch.js is a JavaScript library of UI widgets for building instant search using algolia js api client
+
+
+
+

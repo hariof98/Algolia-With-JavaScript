@@ -1,0 +1,25 @@
+input{
+    font-size: 2rem;
+}
+
+.card{
+    display: grid;
+    border: 10px solid orange;
+    background-color: white;
+    padding: .5rem;
+    width: 20%;
+    margin-top: 1rem;
+    overflow: auto;
+}
+
+.card > .title{
+    margin-bottom: .25rem;
+}
+
+.card > .genre{
+    color: #777;
+}
+
+.card > .rating{
+    color: green;
+}
