@@ -1,6 +1,6 @@
 const mySql = require("mysql");
 const algoliasearch = require("algoliasearch");
-const myKeys = algoliasearch("4HT04T968A", "ec7c7af3e0ed88845fe19eca25c80c9d");
+const myKeys = algoliasearch("xxxxxxxxxx", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 const myIndices = myKeys.initIndex("Users_List");
 
 myIndices.delete().then((myIndices) => {
