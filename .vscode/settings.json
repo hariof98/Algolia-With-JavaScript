@@ -8,9 +8,9 @@
             "server": "localhost",
             "port": 3306,
             "driver": "MySQL",
-            "name": "MySql",
-            "database": "test",
-            "username": "hari",
+            "name": "XXXXX",
+            "database": "XXXX",
+            "username": "XXXX",
             "connectionTimeout": 60,
             "password": ""
         }
