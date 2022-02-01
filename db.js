@@ -14,9 +14,9 @@ const dbConnection = mySql.createConnection({
     port: 3306,
     driver: "MySQL",
     name: "MySql",
-    database: "xxxx",
-    username: "xxxx",
-    password: "xxxx",
+    database: "xxxxxxxxxxx",
+    username: "xxxxxxxxxxx",
+    password: "xxxxxxxxxxx",
 });
 
 dbConnection.connect();

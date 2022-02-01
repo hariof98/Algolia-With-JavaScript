@@ -8,11 +8,11 @@
             "server": "localhost",
             "port": 3306,
             "driver": "MySQL",
-            "name": "XXXXX",
-            "database": "XXXX",
-            "username": "XXXX",
+            "name": "XXXXXXXXXXXXXX",
+            "database": "XXXXXXXXXX",
+            "username": "XXXXXXXXXX",
             "connectionTimeout": 60,
-            "password": ""
+            "password": "XXXXXXXXXX"
         }
     ]
 }
